@@ -22,7 +22,12 @@
  *   '',  'bb'  => 'bb'
  */
 function concatenateStrings(value1, value2) {
+    if (typeof value1 === 'string' && typeof value2 === 'string') {
+        return value1 + value2;
+    } else {
     throw new Error('Not implemented');
+    }
+
 }
 
 
@@ -38,7 +43,11 @@ function concatenateStrings(value1, value2) {
  *   ''      => 0
  */
 function getStringLength(value) {
+    if (typeof value === 'string') {
+        return value.length;
+    } else {
     throw new Error('Not implemented');
+    }
 }
 
 /**
@@ -55,9 +64,12 @@ function getStringLength(value) {
  *   'Chuck','Norris'  => 'Hello, Chuck Norris!'
  */
 function getStringFromTemplate(firstName, lastName) {
+    if (typeof firstName === 'string' && typeof lastName === 'string') {
+        return `Hello, ${firstName} ${lastName}!`;
+    } else {
     throw new Error('Not implemented');
+    }
 }
-
 /**
  * Extracts a name from template string 'Hello, First_Name Last_Name!'.
  *
@@ -69,7 +81,11 @@ function getStringFromTemplate(firstName, lastName) {
  *   'Hello, Chuck Norris!' => 'Chuck Norris'
  */
 function extractNameFromTemplate(value) {
+    if (typeof value === 'string') {
+        return value.substring(7, value.length - 1);
+    } else {
     throw new Error('Not implemented');
+    }
 }
 
 
@@ -84,7 +100,11 @@ function extractNameFromTemplate(value) {
  *   'cat'       => 'c'
  */
 function getFirstChar(value) {
+    if (typeof value === 'string') {
+        return value.substring(0, 1);
+    } else {
     throw new Error('Not implemented');
+    }
 }
 
 /**
@@ -99,7 +119,12 @@ function getFirstChar(value) {
  *   '\tHello, World! ' => 'Hello, World!'
  */
 function removeLeadingAndTrailingWhitespaces(value) {
+    if (typeof value === 'string') {
+
+        return value.replace(/(^\s*)|(\s*)$/g, '');
+    } else {
     throw new Error('Not implemented');
+    }
 }
 
 /**
@@ -114,7 +139,14 @@ function removeLeadingAndTrailingWhitespaces(value) {
  *   'cat', 3 => 'catcatcat'
  */
 function repeatString(value, count) {
+    if (typeof value === 'string') {
+        return value.repeat(count);
+        // let arr = [];
+        // arr.length = count;
+        // return arr.fill(value).join('');
+    } else {
     throw new Error('Not implemented');
+    }
 }
 
 /**
@@ -130,7 +162,11 @@ function repeatString(value, count) {
  *   'ABABAB','BA' => 'ABAB'
  */
 function removeFirstOccurrences(str, value) {
+    if (typeof value === 'string') {
+        return str.replace(value, '');
+    } else {
     throw new Error('Not implemented');
+    }
 }
 
 /**
@@ -145,7 +181,12 @@ function removeFirstOccurrences(str, value) {
  *   '<a>' => 'a'
  */
 function unbracketTag(str) {
+    if (typeof str === 'string') {
+
+        return str.replace('<', '').replace('>', '');
+    } else {
     throw new Error('Not implemented');
+    }
 }
 
 
@@ -160,7 +201,12 @@ function unbracketTag(str) {
  *  'abcdefghijklmnopqrstuvwxyz' => 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
  */
 function convertToUpperCase(str) {
+    if (typeof str === 'string') {
+
+        return str.toUpperCase();
+    } else {
     throw new Error('Not implemented');
+    }
 }
 
 /**
@@ -174,7 +220,12 @@ function convertToUpperCase(str) {
  *   'info@gmail.com' => ['info@gmail.com']
  */
 function extractEmails(str) {
+    if (typeof str === 'string') {
+
+        return str.split(';');
+    } else {
     throw new Error('Not implemented');
+    }
 }
 
 /**
@@ -201,7 +252,12 @@ function extractEmails(str) {
  *
  */
 function getRectangleString(width, height) {
+    if (typeof width === 'number' && typeof height === 'number') {
+        let a = '─'.repeat(width - 2);
+        return `┌${a}┐\n${`│${' '.repeat(width - 2)}│\n`.repeat(height-2)}└${a}┘\n` ;
+    } else {
     throw new Error('Not implemented');
+    }
 }
 
 
@@ -238,7 +294,14 @@ function encodeToRot13(str) {
  *   isString(new String('test')) => true
  */
 function isString(value) {
+    if (typeof value === 'string' || value instanceof String) {
+
+        return true;
+    } else {
+        return false;
     throw new Error('Not implemented');
+    }
+    
 }
 
 
