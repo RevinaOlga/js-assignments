@@ -30,7 +30,15 @@
  *
  */
 function getFizzBuzz(num) {
-    throw new Error('Not implemented');
+    if (num % 3 == 0 && num % 5 == 0) {
+      return 'FizzBuzz';
+    } else if (num % 3 == 0) {
+      return 'Fizz';
+    } else if (num % 5 == 0) {
+      return 'Buzz';
+    } else {
+      return num;
+    }
 }
 
 
@@ -188,7 +196,14 @@ function isInsideCircle(circle, point) {
  *   'entente' => null
  */
 function findFirstSingleChar(str) {
-    throw new Error('Not implemented');
+    for (var i = 0; i < str.length; i++) {
+    var c = str.charAt(i);
+    if (str.indexOf(c) == i && str.indexOf(c, i + 1) == -1) {
+      return c;
+    }
+  }
+  return null;
+
 }
 
 
@@ -214,7 +229,14 @@ function findFirstSingleChar(str) {
  *
  */
 function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
-    throw new Error('Not implemented');
+  let c, d;
+  c = (isStartIncluded === true) ? '[' : '(';
+  d = (isEndIncluded === true) ? ']' : ')';
+  if (a < b) {
+    return `${c}${a}, ${b}${d}`
+  } else {
+    return `${c}${b}, ${a}${d}`
+  }
 }
 
 
@@ -281,7 +303,14 @@ function reverseInteger(num) {
  *   4916123456789012 => false
  */
 function isCreditCardNumber(ccn) {
-    throw new Error('Not implemented');
+
+    return (''+ccn).split('')
+        .reverse()
+        .map( (x) => parseInt(x) )
+        .map( (x,idx) => idx % 2 ? x * 2 : x )
+        .map( (x) => x > 9 ? (x % 10) + 1 : x )
+        .reduce( (accum, x) => accum += x ) % 10 === 0;
+
 }
 
 
@@ -416,7 +445,18 @@ function timespanToHumanString(startDate, endDate) {
  *    365, 10 => '365'
  */
 function toNaryString(num, n) {
-    throw new Error('Not implemented');
+   var ConvertBase = function (num) {
+    return {
+      from : function (baseFrom) {
+        return {
+          to : function (baseTo) {
+            return parseInt(num, baseFrom).toString(baseTo);
+          }
+        };
+      }
+    };
+  };
+  return ConvertBase(num).from(10).to(n);
 }
 
 
@@ -433,7 +473,20 @@ function toNaryString(num, n) {
  *   ['/web/favicon.ico', '/web-scripts/dump', '/webalizer/logs'] => '/'
  */
 function getCommonDirectoryPath(pathes) {
-    throw new Error('Not implemented');
+  let a = false;
+    pathes.forEach(function (el) {
+      if (el.slice(0, 1) != '/') {
+        a = true;
+      }
+    });
+    if (a === true ) {return ''};
+    const splitStrings = (a, sep = '/') => a.map(i => i.split(sep));
+    const elAt = i => a => a[i];
+    const rotate = a => a[0].map((e, i) => a.map(elAt(i)));
+    const allElementsEqual = arr => arr.every(e => e === arr[0]);
+    const commonPath = (input, sep = '/') => rotate(splitStrings(input, sep)).filter(allElementsEqual).map(elAt(0)).join(sep);
+    let str = `${commonPath(pathes)}`;
+    return `${commonPath(pathes)}/`;
 }
 
 

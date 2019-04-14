@@ -410,12 +410,9 @@ function getPositivesCount(arr) {
  *   [ 'one','one','one','zero' ]     => [ 'zero','one','one','one' ]
  */
 function sortDigitNamesByNumericOrder(arr) {
-   if (typeof arr === 'object') {
-    
-    //return arr.sort();
-  } else {
+   
     throw new Error('Not implemented');
-  }
+  
 }
 
 /** 
@@ -676,6 +673,7 @@ function group(array, keySelector, valueSelector) {
  *   ['one','two','three'], x=>x.split('')  =>   ['o','n','e','t','w','o','t','h','r','e','e']
  */
 function selectMany(arr, childrenSelector) {
+    //return arr.map(childrenSelector);
     throw new Error('Not implemented');
 }
 
